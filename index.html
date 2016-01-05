@@ -14,7 +14,8 @@
     //
     function onDeviceReady() {
         //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-        
+        eTitle = document.getElementById('h1Title');
+        eTitle.innerHTML='Ready to work';
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
             console.log("Root = " + fs.root.fullPath);
             var directoryReader = fs.root.createReader();
@@ -55,8 +56,8 @@
     </script>
   </head>
   <body>
-    <h1>Example</h1>
-    <p>Write File</p>
+    <h1 id="h1Title">Example</h1>
+    
     <select id="selFiles"/>
     
   </body>
