@@ -19,11 +19,19 @@
             console.log("Root = " + fs.root.fullPath);
             var directoryReader = fs.root.createReader();
             directoryReader.readEntries(function(entries) {
-                var i;
-                for (i=0; i<entries.length; i++) {
+               
+                select = document.getElementById('selFiles');
+                for (var i=0; i<entries.length; i++) {
                     console.log(entries[i].name);
-
+                    var opt = document.createElement('option');
+                    opt.value = i;
+                    opt.innerHTML =entries[i].name;
+                    select.appendChild(opt);
                 }
+                
+                
+
+
             }, function (error) {
                 alert(error.code);
             })
@@ -49,5 +57,7 @@
   <body>
     <h1>Example</h1>
     <p>Write File</p>
+    <select id="selFiles"/>
+    
   </body>
 </html>
